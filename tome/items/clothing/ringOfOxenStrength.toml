@@ -1,0 +1,25 @@
+name = "Ring of Oxen Strength"
+rarity = 10
+
+pick_descriptions = 2
+description = [
+	"A thick golden ring with carvings of plows and horns",
+	"Enamled horns hold a sparkling saphire",
+	"The ring glows with a dancing internal light"
+]
+
+[equip]
+label = "Put on the ring"
+slot = "Hand"
+
+[[passive]]
+attribute = "Strength"
+change = [ "+", "2" ]
+
+[[passive]]
+attribute = "Constitution"
+change = [ "+", "1" ]
+
+[[passive]]
+attribute = "Intelligence"
+change = [ "-", "2" ]

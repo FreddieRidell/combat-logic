@@ -1,0 +1,16 @@
+name = "Health Potion"
+
+rarity = 1000
+
+description = [
+	"A common potion for restoring vitality",
+	"The potion smells medicinally and herby",
+	"The red liquid bubbles and seeths",
+]
+
+[[action]]
+label = "Take Potion"
+attribute = "Health"
+change = ["+", "2d6 + 4"]
+consumes = true
+report = "use a health potion on %{target}, for %{change} health!"

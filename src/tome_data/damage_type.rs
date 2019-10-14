@@ -1,9 +1,13 @@
 pub enum DamageType {
-    Any,
+    Ignis,
+    Aqua,
+    Flora,
+
+    Mind,
+    Body,
+    Soul,
+
+    Slicing,
+    Bashing,
     Poking,
-    Fire,
-    Bonking,
-    Not(Box<DamageType>),
-    And(Box<DamageType>, Box<DamageType>),
-    Or(Box<DamageType>, Box<DamageType>),
 }

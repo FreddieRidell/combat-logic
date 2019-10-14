@@ -1,0 +1,26 @@
+name = "Plain Shortsword"
+
+rarity = 500
+
+description = [
+	"A simple steel shortsword",
+	"A shortsword with a comfortable leather-wrapped grip"
+]
+
+[equip]
+label = "Wield"
+slot = "OnHand"
+
+[[action]]
+label = "Attack"
+damage = ["d12", 5],
+accuracy = ["d20", 5]
+damage_type = [ "Slicing", "Body" ]
+report = "attack the %{target} for %{damage} damage"
+
+[[action]]
+label = "Defend"
+attribute = "ArmourClass"
+change = [ "+", "5" ]
+duration = 5
+report = "go into a defensive stance"

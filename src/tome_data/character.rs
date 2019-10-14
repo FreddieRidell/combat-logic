@@ -1,9 +1,10 @@
 use super::*;
+use std::collections::HashMap;
+use std::rc::Rc;
 
 pub struct Character {
     id: Id,
     name: String,
 
-    on_hand: ItemInstance,
-    off_hand: ItemInstance,
+    equiped: HashMap<ItemSlot, Rc<ItemSpec>>,
 }
