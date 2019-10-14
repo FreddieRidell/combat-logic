@@ -4,8 +4,8 @@ use serde_derive::Deserialize;
 #[derive(Deserialize)]
 pub struct ActionAttack {
     label: String,
-    damage: DiceExpression,
-    accuracy: DiceExpression,
+    //damage: DiceExpression,
+    //accuracy: DiceExpression,
     damage_type: OneOrMany<DamageType>,
     report: String,
 }

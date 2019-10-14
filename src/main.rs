@@ -1,7 +1,6 @@
 extern crate rpg_engine;
 
 use rpg_engine::*;
-use serde_derive::Deserialize;
 use std::fs;
 use walkdir::WalkDir;
 
@@ -15,8 +14,9 @@ fn main() {
                 &entry.path().to_str().expect("couldn't read path as string");
             let path_name = &full_path_name[11..full_path_name.len() - 5];
 
+            println!("check {} ", &full_path_name);
             item_tome.get_instance(path_name);
-            println!("ok: {}", full_path_name);
+            println!("(ok)");
         }
     }
 }

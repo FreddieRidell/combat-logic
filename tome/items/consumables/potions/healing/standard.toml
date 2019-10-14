@@ -12,6 +12,6 @@ description = [
 type="Buff"
 label = "Take Potion"
 attribute = "Health"
-value = ["D6"]
+value = "2d6 + 4"
 consumes = true
 report = "use a health potion on %{target}, for %{value} health!"

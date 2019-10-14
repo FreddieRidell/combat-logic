@@ -14,8 +14,8 @@ slot = "OnHand"
 [[action]]
 type = "Attack"
 label = "Attack"
-damage = ["D12"]
-accuracy = ["D20"]
+damage = "d12"
+accuracy = "d20"
 damage_type = [ "Slicing", "Body" ]
 report = "attack the %{target} for %{damage} damage"
 
@@ -23,6 +23,6 @@ report = "attack the %{target} for %{damage} damage"
 type = "Buff"
 label = "Block"
 attribute = "ArmorClass"
-value = ["D12"]
+value = "d12"
 duration = 1
 report = "attack the %{target} for %{damage} damage"
