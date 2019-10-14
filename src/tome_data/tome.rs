@@ -1,4 +1,5 @@
 use super::*;
+use crate::error::*;
 use serde::de::DeserializeOwned;
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -27,7 +28,7 @@ impl<Spec: DeserializeOwned, Instance: TomeItemInstance<Spec>> Tome<Spec, Instan
         }
     }
 
-    pub fn get_instance(&mut self, instance_id: &str) -> Instance {
+    pub fn get_instance(&mut self, instance_id: &str) -> RPGResult<Instance> {
         let instance_path = Path::new(instance_id);
         let full_instance_path: PathBuf = self
             .root_dir
@@ -38,10 +39,18 @@ impl<Spec: DeserializeOwned, Instance: TomeItemInstance<Spec>> Tome<Spec, Instan
             .expect("could not join paths")
             .to_path_buf();
 
-        let data_raw: String =
-            fs::read_to_string(&full_instance_path).expect("Unable to read file");
-        let spec: Rc<Spec> = Rc::new(toml::from_str(&data_raw).expect("could not parse spec file"));
+        let data_raw: String = fs::read_to_string(&full_instance_path).map_err(|e| {
+            RPGError::new(RPGErrorKind::TomeEntryNotFound)
+                .with_msg(|| format!("could find find tome spec for `{}`", &instance_id))
+                .from(e)
+        })?;
 
-        Instance::create_from_spec(&spec)
+        let spec: Rc<Spec> = Rc::new(toml::from_str(&data_raw).map_err(|e| {
+            RPGError::new(RPGErrorKind::TomeEntryInvalid)
+                .with_msg(|| format!("could not parse tome spec for `{}`", &instance_id))
+                .from(e)
+        })?);
+
+        Ok(Instance::create_from_spec(&spec))
     }
 }

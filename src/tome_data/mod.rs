@@ -8,6 +8,7 @@ mod generics;
 mod id;
 mod item;
 mod passive_buff;
+mod range;
 mod spell;
 mod tome;
 
@@ -21,5 +22,6 @@ pub use generics::*;
 pub use id::*;
 pub use item::*;
 pub use passive_buff::*;
+pub use range::*;
 pub use spell::*;
 pub use tome::*;

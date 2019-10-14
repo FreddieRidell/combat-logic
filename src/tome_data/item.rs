@@ -28,6 +28,8 @@ struct ItemEquip {
 #[derive(Deserialize)]
 pub struct ItemSpec {
     name: String,
+    rarity: u64,
+    level: u64,
     description: OneOrMany<String>,
     one_of_a_kind: Option<bool>,
 

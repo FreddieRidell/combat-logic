@@ -4,7 +4,7 @@ use rpg_engine::*;
 use std::fs;
 use walkdir::WalkDir;
 
-fn main() {
+fn main() -> RPGResult<()> {
     let mut item_tome = rpg_engine::Tome::<ItemSpec, ItemInstance>::new("tome/items");
 
     for entry in WalkDir::new("tome/items") {
@@ -15,8 +15,10 @@ fn main() {
             let path_name = &full_path_name[11..full_path_name.len() - 5];
 
             println!("check {} ", &full_path_name);
-            item_tome.get_instance(path_name);
+            item_tome.get_instance(path_name)?;
             println!("(ok)");
         }
     }
+
+    Ok(())
 }

@@ -4,10 +4,11 @@ use serde_derive::Deserialize;
 #[derive(Deserialize)]
 pub struct ActionAttack {
     label: String,
-    //damage: DiceExpression,
-    //accuracy: DiceExpression,
+    damage: DiceExpression,
+    accuracy: DiceExpression,
     damage_type: OneOrMany<DamageType>,
-    report: String,
+    range: Range,
+    report: OneOrMany<String>,
 }
 
 #[derive(Deserialize)]
@@ -17,7 +18,7 @@ pub struct ActionBuff {
     value: DiceExpression,
     duration: Option<u64>,
     consumes: Option<bool>,
-    report: String,
+    report: OneOrMany<String>,
 }
 
 #[derive(Deserialize)]
