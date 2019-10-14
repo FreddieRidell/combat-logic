@@ -1,7 +1,6 @@
 name = "Ring of Oxen Strength"
 rarity = 10
 
-pick_descriptions = 2
 description = [
 	"A thick golden ring with carvings of plows and horns",
 	"Enamled horns hold a sparkling saphire",
@@ -13,13 +12,16 @@ label = "Put on the ring"
 slot = ["FingersRight", "FingersLeft"]
 
 [[passive]]
-attribute = "Strength"
-change = [ "+", "2" ]
+attribute = "Str"
+polarity = "+"
+value = 2
 
 [[passive]]
-attribute = "Constitution"
-change = [ "+", "1" ]
+attribute = "Con"
+polarity = "+"
+value = 1
 
 [[passive]]
-attribute = "Intelligence"
-change = [ "-", "2" ]
+attribute = "Int"
+polarity = "-"
+value = 2

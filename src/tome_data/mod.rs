@@ -7,6 +7,7 @@ mod dice_expression;
 mod generics;
 mod id;
 mod item;
+mod passive_buff;
 mod spell;
 mod tome;
 
@@ -19,5 +20,6 @@ pub use dice_expression::*;
 pub use generics::*;
 pub use id::*;
 pub use item::*;
+pub use passive_buff::*;
 pub use spell::*;
 pub use tome::*;

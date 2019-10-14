@@ -7,17 +7,17 @@ use std::marker::PhantomData;
 use std::path::{Path, PathBuf};
 use std::rc::Rc;
 
-pub trait TomeInstance<Spec> {
+pub trait TomeItemInstance<Spec> {
     fn create_from_spec(spec: &Rc<Spec>) -> Self;
 }
 
-pub struct Tome<Spec: DeserializeOwned, Instance: TomeInstance<Spec>> {
+pub struct Tome<Spec: DeserializeOwned, Instance: TomeItemInstance<Spec>> {
     root_dir: PathBuf,
     specs: HashMap<PathBuf, Rc<Spec>>,
     phantom: PhantomData<Instance>,
 }
 
-impl<Spec: DeserializeOwned, Instance: TomeInstance<Spec>> Tome<Spec, Instance> {
+impl<Spec: DeserializeOwned, Instance: TomeItemInstance<Spec>> Tome<Spec, Instance> {
     pub fn new(root_dir: &str) -> Self {
         Self {
             root_dir: Path::new(root_dir).to_path_buf(),

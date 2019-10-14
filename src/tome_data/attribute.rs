@@ -13,4 +13,7 @@ pub enum Attribute {
     MaxHealth,
     Health,
     ArmorClass,
+    FlySpeed,
+    LandSpeed,
+    SwimSpeed,
 }

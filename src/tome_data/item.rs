@@ -32,14 +32,15 @@ pub struct ItemSpec {
     one_of_a_kind: Option<bool>,
 
     equip: Option<ItemEquip>,
-    action: Option<Action>,
+    action: Option<Vec<Action>>,
+    passive: Option<OneOrMany<PassiveBuff>>,
 }
 
 pub struct ItemInstance {
     item_spec: Rc<ItemSpec>,
 }
 
-impl TomeInstance<ItemSpec> for ItemInstance {
+impl TomeItemInstance<ItemSpec> for ItemInstance {
     fn create_from_spec(spec: &Rc<ItemSpec>) -> Self {
         Self {
             item_spec: spec.clone(),

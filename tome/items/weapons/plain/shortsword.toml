@@ -11,10 +11,18 @@ description = [
 label = "Wield"
 slot = "OnHand"
 
-[action]
+[[action]]
 type = "Attack"
 label = "Attack"
 damage = ["D12"]
 accuracy = ["D20"]
 damage_type = [ "Slicing", "Body" ]
+report = "attack the %{target} for %{damage} damage"
+
+[[action]]
+type = "Buff"
+label = "Block"
+attribute = "ArmorClass"
+value = ["D12"]
+duration = 1
 report = "attack the %{target} for %{damage} damage"
