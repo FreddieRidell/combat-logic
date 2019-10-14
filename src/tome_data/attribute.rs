@@ -1,5 +1,7 @@
 use super::*;
+use serde_derive::Deserialize;
 
+#[derive(Deserialize)]
 pub enum Attribute {
     Str,
     Con,

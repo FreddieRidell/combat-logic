@@ -1,2 +1,8 @@
+#[derive(Eq, PartialEq, Hash)]
 pub struct Id(String);
-pub struct Path(Vec<Id>);
+
+impl Id {
+    pub fn get_string(&self) -> &str {
+        &self.0
+    }
+}

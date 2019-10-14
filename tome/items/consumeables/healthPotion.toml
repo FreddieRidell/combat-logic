@@ -8,9 +8,10 @@ description = [
 	"The red liquid bubbles and seeths",
 ]
 
-[[action]]
+[action]
+type="Buff"
 label = "Take Potion"
 attribute = "Health"
-change = ["+", "2d6 + 4"]
+value = ["D6"]
 consumes = true
-report = "use a health potion on %{target}, for %{change} health!"
+report = "use a health potion on target, for value health!"

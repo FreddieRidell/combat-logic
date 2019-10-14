@@ -1,3 +1,4 @@
+mod action;
 mod attribute;
 mod character;
 mod creature;
@@ -7,7 +8,9 @@ mod generics;
 mod id;
 mod item;
 mod spell;
+mod tome;
 
+pub use action::*;
 pub use attribute::*;
 pub use character::*;
 pub use creature::*;
@@ -17,3 +20,4 @@ pub use generics::*;
 pub use id::*;
 pub use item::*;
 pub use spell::*;
+pub use tome::*;
