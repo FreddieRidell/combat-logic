@@ -1,15 +1,18 @@
-name = "Ring of Oxen Strength"
-rarity = 10
-level=12
+name = "Green & Gold Ring"
+identified_name = "Ring of Oxen Strength"
+level = 12
+value = 3000
 
-description = [
+tagline = "As strong (and stupid) as an Ox"
+
+flavour = [
 	"A thick golden ring with carvings of plows and horns",
 	"Enamled horns hold a sparkling saphire",
 	"The ring glows with a dancing internal light"
 ]
 
 [equip]
-label = "Put on the ring"
+label = "Wear"
 slot = "Ring"
 
 [[passive]]

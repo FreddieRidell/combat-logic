@@ -1,10 +1,11 @@
 name = "Plain Fauchard"
 level = 1
+value = 50
 
-description = [
-	"A long handled weapon with a one sided blade mounted at the end",
+tagline = "A long handled weapon with a one sided blade mounted at the end"
+flavour = [
 	"A dangerous martial weapon that originated in a far away land",
-	"Harder to use than a sword, but eventually just as dangerous",
+	"Harder to use than a sword, but just as dangerous with practice",
 ]
 
 [equip]
@@ -22,9 +23,9 @@ report = "attack the %{target} for %{damage} damage"
 
 [[action]]
 type = "Buff"
+label = "Block"
 attribute = "ArmorClass"
 duration = 1
-label = "Block"
 must_target = "WithinRange"
-report = "block incoming atacks"
+report = "block incoming atacks against %{target}"
 value = "1d4 + 2"

@@ -1,0 +1,31 @@
+name = "Plain Shortsword"
+level = 1
+value = 50
+
+tagline = "A simple steel shortsword"
+flavour = [
+	"A shortsword with a comfortable leather-wrapped grip",
+	"The standard weapon of choice for new adventureres"
+]
+
+[equip]
+label = "Wield"
+slot = "OnHand"
+
+[[action]]
+type = "Attack"
+label = "Attack"
+damage = "1d12 + 5"
+accuracy = "1d20 + 5"
+damage_type = [ "Slicing", "Body" ]
+range = 0
+report = "attack the %{target} for %{damage} damage"
+
+[[action]]
+type = "Buff"
+attribute = "ArmorClass"
+duration = 1
+label = "Block"
+must_target = "Myself"
+report = "shift into a defenceve stance"
+value = "1d4 + 2"

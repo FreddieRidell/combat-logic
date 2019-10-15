@@ -1,0 +1,27 @@
+name = "Plain Shield"
+level = 1
+value = 20
+
+tagline = "A simple wood and steel buckler"
+flavour = [
+	"A circular shield that offers moderate protection",
+	"A serviceable shield, just ignore the dents",
+]
+
+[equip]
+label = "Wield"
+slot = "OffHand"
+
+[[passive]]
+attribute = "ArmorClass"
+polarity = "+"
+value = 2
+
+[[action]]
+type = "Buff"
+label = "Defend"
+attribute = "ArmorClass"
+duration = 1
+must_target = "Myself"
+report = "raise my shield"
+value = "1d4 + 2"

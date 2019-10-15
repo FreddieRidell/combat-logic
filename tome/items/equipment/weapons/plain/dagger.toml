@@ -1,0 +1,22 @@
+name = "Simple Dagger"
+level = 1
+value = 20
+
+tagline = "A simple, well balanced steel dagger"
+flavour = [
+	"A small blade, easy to weild and easy to hide",
+	"A dagger, favourite weapon of sneaky bastards the world over",
+]
+
+[equip]
+label = "Wield"
+slot = "EitherHand"
+
+[[action]]
+type = "Attack"
+label = "Attack"
+damage = "1d6 + 4"
+accuracy = "1d20 + 5"
+damage_type = [ "Poking", "Body" ]
+range = 1
+report = "stab the %{target} for %{damage} damage"

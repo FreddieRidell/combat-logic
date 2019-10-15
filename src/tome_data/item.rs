@@ -14,8 +14,11 @@ struct ItemEquipSpec {
 #[derive(Deserialize)]
 pub struct ItemSpec {
     name: String,
+    identified_name: Option<String>,
     level: u64,
-    description: OneOrMany<String>,
+    value: u64,
+    tagline: OneOrMany<String>,
+    flavour: OneOrMany<String>,
     one_of_a_kind: Option<bool>,
 
     equip: Option<ItemEquipSpec>,

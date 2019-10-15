@@ -1,10 +1,12 @@
-name = "Plain Shortsword"
-level = 1
+name = "Fine Sword"
+level = 10
+value = 1000
 
-description = [
-	"A simple steel shortsword",
-	"A shortsword with a comfortable leather-wrapped grip",
-	"The standard weapon of choice for new adventureres"
+tagline = "A sword fit for a nobleman"
+flavour = [
+	"excelent craftsmanship and materials have created a fantastic weapon",
+	"the blade is well balanced",
+	"the grip is made from soft yet strong leather"
 ]
 
 [equip]
@@ -14,7 +16,7 @@ slot = "OnHand"
 [[action]]
 type = "Attack"
 label = "Attack"
-damage = "1d12 + 5"
+damage = "2d10 + 7"
 accuracy = "1d20 + 5"
 damage_type = [ "Slicing", "Body" ]
 range = 0
@@ -27,4 +29,5 @@ duration = 1
 label = "Block"
 must_target = "Myself"
 report = "shift into a defenceve stance"
-value = "1d4 + 2"
+value = "1d6 + 3"
+

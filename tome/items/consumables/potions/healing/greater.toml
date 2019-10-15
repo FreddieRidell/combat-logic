@@ -1,6 +1,6 @@
-name = "Standard Health Potion"
-level = 3
-value = 400
+name = "Greater Health Potion"
+level = 8
+value = 1000
 
 tagline = "This potion restores a portion of your health"
 flavour = [
@@ -13,6 +13,6 @@ flavour = [
 type="Buff"
 label = "Take Potion"
 attribute = "Health"
-value = "4d8 + 4"
+value = "8d8 + 8"
 consumes = true
 report = "use a health potion on %{target}, for %{value} health!"
