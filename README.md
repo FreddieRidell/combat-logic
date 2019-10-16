@@ -1,5 +1,18 @@
 # General Notes
 
+## Action structure
+
+Actions should have a target, and a series of effects:
+
+- Target
+- Casting Time
+- Label
+- Report
+- Effect: []
+  - Damage
+  - Add Status (with optional duration)
+  - Alter Stat (with optional duration)
+
 ## Level / Value
 
 Instead of trying to assign a level to spells/items/creatures/characters, I could instead try to automatically rank them. If we can build a gambit system that's good enough to let characters play skillfully against each other we can just simulate many skirmishes of randomly generated parties using some sort of point buy system.
