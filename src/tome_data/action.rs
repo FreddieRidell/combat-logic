@@ -13,12 +13,12 @@ pub struct AttackActionSpec {
 
 #[derive(Deserialize)]
 pub struct BuffActionSpec {
+    buff: BuffSpec,
+    lasts_for: u64,
     label: String,
-    attribute: Attribute,
     must_target: Option<TargetRequirementSpec>,
-    value: DiceExpression,
-    duration: Option<u64>,
     report: OneOrMany<String>,
+    time_to_complete: u64,
 }
 
 #[derive(Deserialize)]

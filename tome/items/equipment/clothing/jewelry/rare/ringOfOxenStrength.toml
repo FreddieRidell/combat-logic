@@ -18,14 +18,14 @@ slot = "Ring"
 [[passive]]
 attribute = "Str"
 polarity = "+"
-value = 2
+value = "2"
 
 [[passive]]
 attribute = "Con"
 polarity = "+"
-value = 1
+value = "1"
 
 [[passive]]
 attribute = "Int"
 polarity = "-"
-value = 2
+value = "2"

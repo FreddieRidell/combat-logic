@@ -10,7 +10,13 @@ fn main() -> RPGResult<()> {
 
     for entry in WalkDir::new("tome/items") {
         let entry = entry.unwrap();
-        if (entry.file_type().is_file()) {
+        if (entry.file_type().is_file()
+            && !entry
+                .file_name()
+                .to_str()
+                .map(|s| s.starts_with("."))
+                .unwrap_or(false))
+        {
             let full_path_name: &str =
                 &entry.path().to_str().expect("couldn't read path as string");
             let path_name = &full_path_name[11..full_path_name.len() - 5];

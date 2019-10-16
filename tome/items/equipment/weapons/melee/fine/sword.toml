@@ -24,10 +24,9 @@ report = "attack the %{target} for %{damage} damage"
 
 [[action]]
 type = "Buff"
-attribute = "ArmorClass"
-duration = 1
+lasts_for = 1
+time_to_complete = 0
 label = "Block"
 must_target = "Myself"
 report = "shift into a defenceve stance"
-value = "1d6 + 3"
-
+buff = { attribute = "ArmorClass", polarity = "+", value = "1d6 + 3" } 

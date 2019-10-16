@@ -15,7 +15,6 @@ struct ItemEquipSpec {
 pub struct ItemSpec {
     name: String,
     identified_name: Option<String>,
-    level: u64,
     value: u64,
     tagline: OneOrMany<String>,
     flavour: OneOrMany<String>,
@@ -23,7 +22,7 @@ pub struct ItemSpec {
 
     equip: Option<ItemEquipSpec>,
     action: Option<Vec<ItemActionSpec>>,
-    passive: Option<OneOrMany<PassiveSpec>>,
+    passive: Option<OneOrMany<BuffSpec>>,
 }
 
 pub struct ItemInstance {

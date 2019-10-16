@@ -1,0 +1,14 @@
+name="Loaf of Bread"
+value=20
+
+tagline="A tasty looking loaf of seeded bread"
+flavour = []
+
+[[consume]]
+type="Buff"
+label="Eat"
+attribute="Health"
+polarity="+"
+value="20"
+time_to_complete=20
+must_target="Myself"

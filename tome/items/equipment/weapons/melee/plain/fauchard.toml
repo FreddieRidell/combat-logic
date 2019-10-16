@@ -24,8 +24,8 @@ report = "attack the %{target} for %{damage} damage"
 [[action]]
 type = "Buff"
 label = "Block"
-attribute = "ArmorClass"
-duration = 1
+lasts_for = 1
+time_to_complete = 0
 must_target = "WithinRange"
 report = "block incoming atacks against %{target}"
-value = "1d4 + 2"
+buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
