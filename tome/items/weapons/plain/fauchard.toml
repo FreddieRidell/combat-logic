@@ -1,0 +1,30 @@
+name = "Plain Fauchard"
+level = 1
+
+description = [
+	"A long handled weapon with a one sided blade mounted at the end",
+	"A dangerous martial weapon that originated in a far away land",
+	"Harder to use than a sword, but eventually just as dangerous",
+]
+
+[equip]
+label = "Wield"
+slot = "TwoHand"
+
+[[action]]
+type = "Attack"
+label = "Attack"
+damage = "2d8 + 3"
+accuracy = "1d20 + 5"
+damage_type = [ "Slicing", "Body" ]
+range = 1
+report = "attack the %{target} for %{damage} damage"
+
+[[action]]
+type = "Buff"
+attribute = "ArmorClass"
+duration = 1
+label = "Block"
+must_target = "WithinRange"
+report = "block incoming atacks"
+value = "1d4 + 2"

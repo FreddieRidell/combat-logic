@@ -2,6 +2,7 @@ extern crate rpg_engine;
 
 use rpg_engine::*;
 use std::fs;
+use std::io::Write;
 use walkdir::WalkDir;
 
 fn main() -> RPGResult<()> {
@@ -14,9 +15,16 @@ fn main() -> RPGResult<()> {
                 &entry.path().to_str().expect("couldn't read path as string");
             let path_name = &full_path_name[11..full_path_name.len() - 5];
 
-            println!("check {} ", &full_path_name);
-            item_tome.get_instance(path_name)?;
-            println!("(ok)");
+            print!("check {}", &full_path_name);
+            std::io::stdout().flush();
+
+            match item_tome.get_instance(path_name) {
+                Ok(_) => println!(" (ok)"),
+                Err(e) => {
+                    println!("\n{}", &e);
+                    return Ok(());
+                }
+            }
         }
     }
 

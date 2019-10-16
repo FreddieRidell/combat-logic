@@ -1,5 +1,3 @@
 use super::*;
 
-pub struct Creature {
-    id: Id,
-}
+pub struct Creature {}

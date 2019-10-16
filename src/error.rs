@@ -3,9 +3,11 @@ use std::fmt;
 
 #[derive(Debug)]
 pub enum RPGErrorKind {
-    TomeEntryNotFound,
+    DiceExpressionInvalid,
     TomeEntryInvalid,
+    TomeEntryNotFound,
 }
+
 impl fmt::Display for RPGErrorKind {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         use RPGErrorKind::*;
@@ -14,10 +16,17 @@ impl fmt::Display for RPGErrorKind {
             f,
             "{}",
             match self {
+                DiceExpressionInvalid => "DiceExpressionInvalid",
                 TomeEntryInvalid => "TomeEntryInvalid",
                 TomeEntryNotFound => "TomeEntryNotFound",
             }
         )
+    }
+}
+
+impl RPGError {
+    pub fn into_serde_error<DeError: serde::de::Error>(self) -> DeError {
+        DeError::custom(format!("{}", self))
     }
 }
 

@@ -2,7 +2,7 @@ use super::*;
 use serde_derive::Deserialize;
 
 #[derive(Deserialize)]
-pub struct ActionAttack {
+pub struct AttackActionSpec {
     label: String,
     damage: DiceExpression,
     accuracy: DiceExpression,
@@ -12,9 +12,10 @@ pub struct ActionAttack {
 }
 
 #[derive(Deserialize)]
-pub struct ActionBuff {
+pub struct BuffActionSpec {
     label: String,
     attribute: Attribute,
+    must_target: Option<TargetRequirementSpec>,
     value: DiceExpression,
     duration: Option<u64>,
     consumes: Option<bool>,
@@ -23,7 +24,7 @@ pub struct ActionBuff {
 
 #[derive(Deserialize)]
 #[serde(tag = "type")]
-pub enum Action {
-    Attack(ActionAttack),
-    Buff(ActionBuff),
+pub enum ActionSpec {
+    Attack(AttackActionSpec),
+    Buff(BuffActionSpec),
 }

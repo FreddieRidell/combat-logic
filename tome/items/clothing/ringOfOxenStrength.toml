@@ -10,7 +10,7 @@ description = [
 
 [equip]
 label = "Put on the ring"
-slot = ["FingersRight", "FingersLeft"]
+slot = "Ring"
 
 [[passive]]
 attribute = "Str"

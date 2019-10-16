@@ -6,36 +6,21 @@ use std::path::PathBuf;
 use std::rc::Rc;
 
 #[derive(Deserialize)]
-pub enum ItemSlot {
-    Arms,
-    Feet,
-    FingersLeft,
-    FingersRight,
-    Head,
-    Legs,
-    Neck,
-    OffHand,
-    OnHand,
-    Torso,
-}
-
-#[derive(Deserialize)]
-struct ItemEquip {
+struct ItemEquipSpec {
     label: String,
-    slot: OneOrMany<ItemSlot>,
+    slot: ItemSlotSpec,
 }
 
 #[derive(Deserialize)]
 pub struct ItemSpec {
     name: String,
-    rarity: u64,
     level: u64,
     description: OneOrMany<String>,
     one_of_a_kind: Option<bool>,
 
-    equip: Option<ItemEquip>,
-    action: Option<Vec<Action>>,
-    passive: Option<OneOrMany<PassiveBuff>>,
+    equip: Option<ItemEquipSpec>,
+    action: Option<Vec<ActionSpec>>,
+    passive: Option<OneOrMany<PassiveSpec>>,
 }
 
 pub struct ItemInstance {

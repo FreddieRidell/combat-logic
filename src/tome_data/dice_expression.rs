@@ -1,4 +1,5 @@
 use super::*;
+use crate::error::*;
 use serde::de::{self, Deserialize, Deserializer, Visitor};
 use std::collections::HashMap;
 use std::fmt;
@@ -17,6 +18,50 @@ pub enum Dice {
 
 pub struct DiceExpression(HashMap<Dice, u8>);
 
+impl DiceExpression {
+    pub fn parse(s: &str) -> RPGResult<Self> {
+        let hash_map: HashMap<Dice, u8> = s
+            .split("+")
+            .map(|x| x.trim().to_lowercase())
+            .map(|token| {
+                if (token.contains("d")) {
+                    let d_index = token.find("d").expect("should contain d");
+                    let number = token[..d_index].parse::<u8>().unwrap_or(0);
+                    let dice_size = token[1 + d_index..].parse::<u8>().map_err(|e| {
+                        RPGError::new(RPGErrorKind::DiceExpressionInvalid)
+                            .from(e)
+                            .with_msg(|| format!("{} is an unparseable die value", &token))
+                    })?;
+
+                    let dice = match dice_size {
+                        4 => Ok(Dice::D4),
+                        6 => Ok(Dice::D6),
+                        8 => Ok(Dice::D8),
+                        10 => Ok(Dice::D10),
+                        12 => Ok(Dice::D12),
+                        20 => Ok(Dice::D20),
+                        100 => Ok(Dice::D100),
+                        _ => Err(RPGError::new(RPGErrorKind::DiceExpressionInvalid)
+                            .with_msg(|| format!("{} is not a valid die size", &token))),
+                    }?;
+
+                    Ok((dice, number))
+                } else {
+                    Ok((
+                        Dice::Constant(token.parse::<u64>().map_err(|_| {
+                            RPGError::new(RPGErrorKind::DiceExpressionInvalid)
+                                .with_msg(|| format!("{} is an unparseable die value", &token))
+                        })?),
+                        1,
+                    ))
+                }
+            })
+            .collect::<Result<HashMap<Dice, u8>, RPGError>>()?;
+
+        Ok(DiceExpression(hash_map))
+    }
+}
+
 struct DiceExpressionVisitor;
 
 impl<'de> Visitor<'de> for DiceExpressionVisitor {
@@ -30,41 +75,7 @@ impl<'de> Visitor<'de> for DiceExpressionVisitor {
     where
         E: de::Error,
     {
-        let hash_map: HashMap<Dice, u8> = s
-            .split("+")
-            .map(|x| x.trim().to_lowercase())
-            .map(|token| {
-                if (token.contains("d")) {
-                    let d_index = token.find("d").expect("should contain d");
-                    let number = token[..d_index].parse::<u8>().unwrap_or(0);
-                    let dice_size = token[1 + d_index..].parse::<u8>().map_err(|_| {
-                        E::custom(format!("{} is an unparseable die value", &token))
-                    })?;
-
-                    let dice = match dice_size {
-                        4 => Ok(Dice::D4),
-                        6 => Ok(Dice::D6),
-                        8 => Ok(Dice::D8),
-                        10 => Ok(Dice::D10),
-                        12 => Ok(Dice::D12),
-                        20 => Ok(Dice::D20),
-                        100 => Ok(Dice::D100),
-                        _ => Err((E::custom(format!("{} is not a valid die size", &token)))),
-                    }?;
-
-                    Ok((dice, number))
-                } else {
-                    Ok((
-                        Dice::Constant(token.parse::<u64>().map_err(|_| {
-                            E::custom(format!("{} is an unparseable die value", &token))
-                        })?),
-                        1,
-                    ))
-                }
-            })
-            .collect::<Result<HashMap<Dice, u8>, E>>()?;
-
-        Ok(DiceExpression(hash_map))
+        DiceExpression::parse(s).map_err(|e| e.into_serde_error())
     }
 }
 

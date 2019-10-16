@@ -10,7 +10,7 @@ pub enum Polarity {
 }
 
 #[derive(Deserialize)]
-pub struct PassiveBuff {
+pub struct PassiveSpec {
     attribute: Attribute,
     polarity: Polarity,
     value: u64,
