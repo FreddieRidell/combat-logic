@@ -18,13 +18,13 @@ pub struct BuffActionSpec {
     must_target: Option<TargetRequirementSpec>,
     value: DiceExpression,
     duration: Option<u64>,
-    consumes: Option<bool>,
     report: OneOrMany<String>,
 }
 
 #[derive(Deserialize)]
 #[serde(tag = "type")]
-pub enum ActionSpec {
+pub enum ItemActionSpec {
     Attack(AttackActionSpec),
     Buff(BuffActionSpec),
+    Consume(BuffActionSpec),
 }

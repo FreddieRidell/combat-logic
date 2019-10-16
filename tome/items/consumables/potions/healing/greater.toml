@@ -9,7 +9,7 @@ flavour = [
 	"The red liquid bubbles and seeths",
 ]
 
-[[action]]
+[[consume]]
 type="Buff"
 label = "Take Potion"
 attribute = "Health"

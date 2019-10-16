@@ -22,7 +22,7 @@ pub struct ItemSpec {
     one_of_a_kind: Option<bool>,
 
     equip: Option<ItemEquipSpec>,
-    action: Option<Vec<ActionSpec>>,
+    action: Option<Vec<ItemActionSpec>>,
     passive: Option<OneOrMany<PassiveSpec>>,
 }
 
