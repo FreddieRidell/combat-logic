@@ -9,9 +9,10 @@ flavour = [
 	"The red liquid bubbles and seeths",
 ]
 
-[[consume]]
-type="Buff"
+[consume]
 label = "Take Potion"
-attribute = "Health"
-value = "2d8 + 2"
 report = "use a health potion on %{target}, for %{value} health!"
+range = 1
+	[[consume.effect]]
+	type = "Heal"
+	value = "2d8 + 2"

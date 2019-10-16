@@ -20,8 +20,9 @@ pub struct ItemSpec {
     flavour: OneOrMany<String>,
     one_of_a_kind: Option<bool>,
 
+    action: Option<Vec<ActionSpec>>,
+    consume: Option<ActionSpec>,
     equip: Option<ItemEquipSpec>,
-    action: Option<Vec<ItemActionSpec>>,
     passive: Option<OneOrMany<BuffSpec>>,
 }
 

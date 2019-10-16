@@ -1,14 +1,14 @@
-name="Loaf of Bread"
-value=20
+name="Pot of Yoghurt"
+value=15
 
-tagline="A tasty looking loaf of seeded bread"
-flavour = []
+tagline="There's a picture of a smiling pineapple on the side"
+flavour = [ "Quite why anyone would carry this around on an adventure is beyond you" ]
 
-[[consume]]
-type="Buff"
-label="Eat"
-attribute="Health"
-polarity="+"
-value="20"
-time_to_complete=20
-must_target="Myself"
+[consume]
+label = "Eat"
+range = 0
+report = "spoon up the yog"
+time = "Minute"
+	[[consume.effect]]
+	type = "Heal"
+	value = "1d10 + 10"

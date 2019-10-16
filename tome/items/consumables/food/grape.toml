@@ -1,14 +1,14 @@
-name="Loaf of Bread"
-value=20
+name="grape"
+value=1
 
-tagline="A tasty looking loaf of seeded bread"
-flavour = []
+tagline="A single grape"
+flavour = [ "it's round and grapey" ]
 
-[[consume]]
-type="Buff"
-label="Eat"
-attribute="Health"
-polarity="+"
-value="20"
-time_to_complete=20
-must_target="Myself"
+[consume]
+label = "Eat"
+range = 0
+report = "eat the grape"
+time = "Turn"
+	[[consume.effect]]
+	type = "Heal"
+	value = "1"

@@ -1,14 +1,14 @@
-name="Loaf of Bread"
-value=20
+name="Apple"
+value=5
 
-tagline="A tasty looking loaf of seeded bread"
-flavour = []
+tagline="Round, shiny, and red"
+flavour = [ "The french call this fruit \"le pomme de pommes\"" ]
 
-[[consume]]
-type="Buff"
-label="Eat"
-attribute="Health"
-polarity="+"
-value="20"
-time_to_complete=20
-must_target="Myself"
+[consume]
+label = "Eat"
+range = 0
+report = "eat the apple"
+time = "Minute"
+	[[consume.effect]]
+	type = "Heal"
+	value = "5"

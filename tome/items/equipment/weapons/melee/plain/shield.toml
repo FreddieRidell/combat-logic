@@ -18,10 +18,10 @@ polarity = "+"
 value = "2"
 
 [[action]]
-type = "Buff"
 label = "Defend"
-lasts_for = 1
-time_to_complete = 0
-must_target = "Myself"
 report = "raise my shield"
-buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
+range = 1
+	[[action.effect]]
+	type = "Buff"
+	buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
+	duration = "Turn"

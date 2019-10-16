@@ -13,10 +13,11 @@ label = "Wield"
 slot = "EitherHand"
 
 [[action]]
-type = "Attack"
 label = "Attack"
-damage = "1d6 + 4"
-accuracy = "1d20 + 5"
-damage_type = [ "Poking", "Body" ]
 range = 1
 report = "stab the %{target} for %{damage} damage"
+accuracy = "1d20 + 5"
+	[[action.effect]]
+	type = "Damage"
+	damage = "1d6 + 4"
+	damage_type = [ "Poking", "Body" ]

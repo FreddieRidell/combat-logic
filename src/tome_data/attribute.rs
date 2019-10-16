@@ -17,4 +17,6 @@ pub enum Attribute {
     FlySpeed,
     LandSpeed,
     SwimSpeed,
+
+    NumberOfTurns,
 }

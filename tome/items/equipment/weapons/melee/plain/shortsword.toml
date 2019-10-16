@@ -13,19 +13,22 @@ label = "Wield"
 slot = "OnHand"
 
 [[action]]
-type = "Attack"
 label = "Attack"
-damage = "1d12 + 5"
-accuracy = "1d20 + 5"
-damage_type = [ "Slicing", "Body" ]
 range = 0
 report = "attack the %{target} for %{damage} damage"
+accuracy = "1d20 + 5"
+	[[action.effect]]
+	type = "Damage"
+	damage = "1d12 + 5"
+	damage_type = [ "Slicing", "Body" ]
 
 [[action]]
-type = "Buff"
 label = "Block"
-buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
-lasts_for = 1
 must_target = "Myself"
 report = "shift into a defenceve stance"
-time_to_complete = 0
+accuracy = "1d20 + 5"
+range = 0
+	[[action.effect]]
+	type = "Buff"
+	buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
+	duration = "Turn"
