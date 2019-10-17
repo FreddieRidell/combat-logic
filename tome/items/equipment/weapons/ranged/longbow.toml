@@ -1,0 +1,19 @@
+name = "Simple Longbow"
+value = 20
+
+tagline = "A gently curving bow, made from yew"
+flavour = "It's almost as tall as a person"
+
+[equip]
+label = "Wield"
+slot = "TwoHand"
+
+[[action]]
+label = "Shoot"
+range = 15
+report = "stab the %{target} for %{damage} damage"
+accuracy = "1d20 + 5"
+	[[action.effect]]
+	type = "Damage"
+	damage = "1d6 + 4"
+	damage_type = [ "Poking", "Body" ]

@@ -1,0 +1,20 @@
+name = "Crossbow"
+value = 20
+
+tagline = "It's like what a crossbow is"
+flavour = "stubby"
+
+[equip]
+label = "Wield"
+slot = "TwoHand"
+
+[[action]]
+label = "Shoot"
+range = 10
+report = "shoot the %{target} for %{damage} damage"
+accuracy = "1d20 + 5"
+	[[action.effect]]
+	type = "Damage"
+	damage = "2d6 + 6"
+	damage_type = [ "Poking", "Body" ]
+
