@@ -1,0 +1,15 @@
+name = "Leather Jerkin"
+value = 200
+weight = 10
+
+tagline = "A plain but hardy overcoat"
+flavour = []
+
+[equip]
+label = "Put On"
+slot = "Torso"
+
+[[passive]]
+attribute = "ArmorClass"
+polarity = "+"
+value = "3"

@@ -1,0 +1,13 @@
+name = "Cords"
+value = 10
+weight = 3
+
+tagline = "A fetching set of burgundy cordury trousers"
+
+flavour = [
+	"sure, they're fashionable, but that's pretty much all they've got going for them"
+]
+
+[equip]
+label = "Put On"
+slot = "Legs"

@@ -1,0 +1,14 @@
+name = "Plate Cuirass"
+value = 100
+weight = 20
+
+tagline = "A moudled breastplate"
+flavour = []
+
+[equip]
+label = "Buckle On"
+slot = "Torso"
+
+[[passive]]
+attribute = "ArmorClass"
+value = "5"

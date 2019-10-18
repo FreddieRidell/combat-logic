@@ -1,0 +1,15 @@
+name = "Robe"
+value = 10
+weight = 4
+
+tagline = "A simple cotton robe"
+
+flavour = [
+	"dyed a plain, somber, unvaried grey",
+	"small patterns are embroidered into the hem",
+	"offers protection from the elements, but little else"
+]
+
+[equip]
+label = "Put On"
+slot = "Torso"

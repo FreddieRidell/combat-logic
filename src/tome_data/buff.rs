@@ -12,6 +12,5 @@ pub enum Polarity {
 #[derive(Deserialize)]
 pub struct BuffSpec {
     attribute: Attribute,
-    polarity: Polarity,
     value: DiceExpression,
 }

@@ -1,0 +1,18 @@
+name = "Leather Chapps"
+value = 100
+weight = 8
+
+tagline = "These assless Leather Chaps provide moderate protection, from the front"
+flavour = "... why are they assless?"
+
+[equip]
+label = "Strap On"
+slot = "Legs"
+
+[[passive]]
+attribute = "ArmorClass"
+value = "1"
+
+[[passive]]
+attribute = "Cha"
+value = "2"

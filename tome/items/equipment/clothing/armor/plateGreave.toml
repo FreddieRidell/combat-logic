@@ -1,0 +1,14 @@
+name = "Plate Greaves"
+value = 100
+weigth = 20
+
+tagline = "Bright steel leg wraps"
+flavour = "Like metal leg-warmers, for lethal aerobics"
+
+[equip]
+label = "Buckle On"
+slot = "Legs"
+
+[[passive]]
+attribute = "ArmorClass"
+value = "3"
