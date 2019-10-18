@@ -39,17 +39,17 @@ pub struct ItemSpec {
     /// Constant buffs that apply for as long as the item is equiped
     passive: Option<OneOrMany<BuffSpec>>,
 }
+impl TomeSpec for ItemSpec {}
 
 pub struct ItemInstance {
     item_spec: Rc<ItemSpec>,
 }
+impl TomeInstance for ItemInstance {}
 
-impl TomeItemInstance<ItemSpec> for ItemInstance {
-    fn create_from_spec(spec: &Rc<ItemSpec>) -> Self {
+impl CreateFromInstance<ItemSpec> for ItemInstance {
+    fn create_from_spec(_: &Tome, spec: &Rc<ItemSpec>) -> Self {
         Self {
             item_spec: spec.clone(),
         }
     }
 }
-
-pub type ItemTome = Tome<ItemSpec, ItemInstance>;
