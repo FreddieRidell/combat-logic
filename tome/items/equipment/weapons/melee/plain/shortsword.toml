@@ -26,7 +26,6 @@ accuracy = "1d20 + 5"
 label = "Block"
 must_target = "Myself"
 report = "shift into a defenceve stance"
-accuracy = "1d20 + 5"
 range = 0
 	[[action.effect]]
 	type = "Buff"

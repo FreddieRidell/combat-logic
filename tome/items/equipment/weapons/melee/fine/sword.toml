@@ -17,10 +17,10 @@ slot = "OnHand"
 label = "Attack"
 range = 0
 report = "attack the %{target} for %{damage} damage"
+accuracy = "1d20 + 5"
 	[[action.effect]]
 	type = "Damage"
 	damage = "2d10 + 7"
-	accuracy = "1d20 + 5"
 	damage_type = [ "Slicing", "Body" ]
 
 [[action]]

@@ -38,6 +38,20 @@ pub enum ActionEffectSpec {
     DeBuf(ActionEffectBuff),
 }
 
+/// unlike DnD, there's no saving throws here. The attacker always rolls, they can just roll
+/// against something other than ArmourClass, this means to can make spells that mean the actor
+/// must roll against the target's Wis, for instance.
+#[derive(Deserialize)]
+pub struct ToHit {
+    accuracy: DiceExpression,
+    #[serde(default = "against_attribute_default")]
+    against_attribute: Attribute,
+}
+
+fn against_attribute_default() -> Attribute {
+    Attribute::ArmorClass
+}
+
 /// A description of an action that can be taken by a character, targeted to any character.
 /// There may be certain limitations, like range or `must_target`.
 /// Multiple effects can be triggered by any given action. For example, an action could cause
@@ -52,4 +66,7 @@ pub struct ActionSpec {
     range: Range,
     report: OneOrMany<String>,
     time: Option<DurationSpec>,
+
+    #[serde(flatten)]
+    to_hit: Option<ToHit>,
 }
