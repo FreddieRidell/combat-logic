@@ -49,6 +49,7 @@ pub trait CreateFromInstance<Spec: TomeSpec>: TomeInstance {
 pub struct Tome {
     root_dir: PathBuf,
     item_specs: HashMap<PathBuf, Rc<ItemSpec>>,
+    spell_specs: HashMap<PathBuf, Rc<SpellSpec>>,
 }
 
 impl Tome {
@@ -93,17 +94,17 @@ impl Tome {
 macro_rules! get_and_load_tome_type {
     ($spec_fn_name:ident, $instance_fn_name:ident, $chapter:expr, $store:ident, $spec:ident, $instance:ident) => {
             pub fn $spec_fn_name(&mut self, instance_id: &str) -> RPGResult<Rc<$spec>> {
-                let item: Rc<$spec> = Rc::new(self.read_spec($chapter, instance_id)?);
+                let x: Rc<$spec> = Rc::new(self.read_spec($chapter, instance_id)?);
 
-                self.$store.insert(PathBuf::from(instance_id), item.clone());
+                self.$store.insert(PathBuf::from(instance_id), x.clone());
 
-                Ok(item)
+                Ok(x)
             }
 
             pub fn $instance_fn_name(&mut self, instance_id: &str) -> RPGResult<$instance> {
-                let spec = self.load_item_spec(instance_id)?;
+                let spec = self.$spec_fn_name(instance_id)?;
 
-                Ok(ItemInstance::create_from_spec(&self, &spec))
+                Ok($instance::create_from_spec(&self, &spec))
             }
     };
 }
@@ -117,6 +118,14 @@ impl Tome {
         ItemSpec,
         ItemInstance
     );
+    get_and_load_tome_type!(
+        load_spell_spec,
+        create_spell_instance,
+        "spells",
+        spell_specs,
+        SpellSpec,
+        SpellInstance
+    );
 }
 
 impl Tome {
@@ -124,6 +133,7 @@ impl Tome {
         Self {
             root_dir,
             item_specs: HashMap::new(),
+            spell_specs: HashMap::new(),
         }
     }
 }

@@ -25,13 +25,14 @@ pub struct ItemSpec {
     /// Any extra description text, chosen at random every time the item is viewed
     flavour: OneOrMany<String>,
     /// If true, the item can not ever be generated in-world
-    one_of_a_kind: Option<bool>,
+    #[serde(default = "default_bool")]
+    one_of_a_kind: bool,
     /// Information about how/where to equip the item, if it is equipable. If `equip = Some(_)`
     /// then `action`, `consume`, and `passive` will only be accessable when the item is equiped
     equip: Option<ItemEquipSpec>,
     /// The weight in kg, of the item
-    weight: Option<u64>,
-
+    #[serde(default = "default_u64")]
+    weight: u64,
     /// Things that can be done with the item.
     action: Option<Vec<ActionSpec>>,
     /// Single use actions that consume the item, removing it from the actor's inventory
@@ -39,6 +40,14 @@ pub struct ItemSpec {
     /// Constant buffs that apply for as long as the item is equiped
     passive: Option<OneOrMany<BuffSpec>>,
 }
+
+fn default_u64() -> u64 {
+    0
+}
+fn default_bool() -> bool {
+    false
+}
+
 impl TomeSpec for ItemSpec {}
 
 pub struct ItemInstance {

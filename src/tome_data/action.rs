@@ -66,7 +66,6 @@ pub struct ActionSpec {
     range: Range,
     report: OneOrMany<String>,
     time: Option<DurationSpec>,
-
     #[serde(flatten)]
     to_hit: Option<ToHit>,
 }
