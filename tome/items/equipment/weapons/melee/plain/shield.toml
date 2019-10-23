@@ -23,5 +23,7 @@ report = "raise my shield"
 range = 1
 	[[action.effect]]
 	type = "Buff"
-	buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
+	attribute = "ArmorClass"
 	duration = "Turn"
+	polarity = "+"
+	value = "1d4 + 2"

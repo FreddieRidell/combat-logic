@@ -29,5 +29,7 @@ report = "shift into a defenceve stance"
 range = 0
 	[[action.effect]]
 	type = "Buff"
-	buff = { attribute = "ArmorClass", polarity = "+", value = "1d4 + 2" }
+	attribute = "ArmorClass"
+	polarity = "+"
+	value = "1d4 + 2" 
 	duration = "Turn"

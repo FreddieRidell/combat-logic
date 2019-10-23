@@ -30,4 +30,6 @@ range = 0
 	[[action.effect]]
 	type = "Buff"
 	duration="Turn"
-	buff = { attribute = "ArmorClass", polarity = "+", value = "1d6 + 3" } 
+	attribute = "ArmorClass"
+	polarity = "+"
+	value = "1d6 + 3" 

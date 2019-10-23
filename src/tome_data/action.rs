@@ -24,6 +24,7 @@ pub struct ActionEffectAddStatus {
 /// Adds a buff to the target, with a character duration
 #[derive(Deserialize)]
 pub struct ActionEffectBuff {
+    #[serde(flatten)]
     buff: BuffSpec,
     duration: DurationSpec,
 }

@@ -1,6 +1,6 @@
-extern crate rpg_engine;
+extern crate mercer;
 
-use rpg_engine::*;
+use mercer::*;
 use std::fs;
 use std::io::Write;
 use std::path::PathBuf;
@@ -11,7 +11,7 @@ fn test_all_items() -> RPGResult<()> {
     let mut tome_dir = PathBuf::from(&cargo_manifest_dir);
     tome_dir.push("tome");
 
-    let mut tome = rpg_engine::Tome::new(tome_dir.clone());
+    let mut tome = mercer::Tome::new(tome_dir.clone());
 
     tome_dir.push("items");
     let mut tome_dir_string: String = tome_dir.clone().to_str().expect("1").to_owned();
@@ -52,7 +52,7 @@ fn test_all_spells() -> RPGResult<()> {
     let mut tome_dir = PathBuf::from(&cargo_manifest_dir);
     tome_dir.push("tome");
 
-    let mut tome = rpg_engine::Tome::new(tome_dir.clone());
+    let mut tome = mercer::Tome::new(tome_dir.clone());
 
     tome_dir.push("spells");
     let mut tome_dir_string: String = tome_dir.clone().to_str().expect("1").to_owned();
