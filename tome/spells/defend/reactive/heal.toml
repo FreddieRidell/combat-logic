@@ -2,8 +2,8 @@ name = "Heal"
 value = 100
 tagline = "restore a portion of health"
 flavour = "fill someone up with the red juice"
-level=1
 label="Cast"
+mana=15
 
 [[effect]]
 type="Heal"

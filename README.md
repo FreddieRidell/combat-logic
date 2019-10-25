@@ -32,3 +32,13 @@ This does also have the advantage that we can tweak the properties of entries, a
 Come to think of it, as the gambit system is data driven as well, we could perhaps also automatically generate and rank a set of gambits.
 
 We also need to consider some measure of synergy, so that given one tome entry, we can pick others that synergise well. It makes no sense to value a warhammer highly, if you're a wizard
+
+## Mana
+
+Spell slots are probably not that good of an idea, it's pretty cool to have spells do variable things when used at different levels, but that adds a lot of complexity. There's probably a reason that literally no videogames use a spell slot system. There might some mileage in a dishonored like mana system where you regenerate 10 mana each turn _if_ you used a spell last turn.
+
+This essentially makes weak spells free, as you'll regenerate the mana completely by next turn, but more powerful spells consume more than will re-generate, so if you keep using them you'll have to take a mana potion. You could also rest for a turn to regain some mana
+
+- How would physically based classes interact with mana?
+- Do they need to at all?
+- Is the tradeoff that you can't cause as much damage as a spell caster, but you don't have a resource to manage?

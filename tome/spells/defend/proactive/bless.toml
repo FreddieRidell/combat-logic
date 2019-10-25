@@ -2,6 +2,7 @@ name="bless"
 value=300
 tagline="fill the target with effective goodness"
 flavour="make them feel great"
+mana=10
 
 label="Cast"
 

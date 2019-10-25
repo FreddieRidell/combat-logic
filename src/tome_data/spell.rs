@@ -2,9 +2,6 @@ use super::*;
 use serde_derive::Deserialize;
 
 #[derive(Deserialize)]
-pub struct SpellLevel(u8);
-
-#[derive(Deserialize)]
 pub struct SpellSpec {
     /// The name that renders by default for an item
     name: String,
@@ -16,6 +13,11 @@ pub struct SpellSpec {
     /// Any extra description text, chosen at random every time the item is viewed
     flavour: OneOrMany<String>,
 
+    /// The mana consumed by the spell
+    mana: u64,
+
+    /// Spells inherently represent 1 action, so the properties of `ActionSpec` are spread into
+    /// `SpellSpec`
     #[serde(flatten)]
     action: ActionSpec,
 }

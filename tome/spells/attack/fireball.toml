@@ -2,6 +2,7 @@ name="fireball"
 value=300
 tagline="smack down a massive ass fireball"
 flavour="it's hot hot spicy spicy"
+mana=20
 
 accuracy="1d20"
 against_attribute="Dex"
@@ -17,4 +18,4 @@ duration = "Minute"
 [[effect]]
 type="Damage"
 damage="3d10 + 5"
-damage_type = ["Ignis", "Body" ]
+damage_type = [ "Fire", "Body" ]
