@@ -5,21 +5,31 @@ use serde_derive::Deserialize;
 pub struct SpellLevel(u8);
 
 #[derive(Deserialize)]
-pub enum SpellAreaOfEffectSpec {
+pub enum SpellAreaOfEffectShapeSpec {
     /// A number of characters that are directly targeted
-    Character(u8),
+    Character,
     /// A number of points where the effect will occour
-    Points(u8),
+    Points,
     /// A straight line with a given length, from the caster out
-    Line(u8),
+    Line,
     /// A 45 degreen cone of a given length, out from the caster
-    Cone(u8),
+    Cone,
     /// A sphere of a given diameter, anywhere within range of the caster
-    Sphere(u8),
+    Sphere,
 }
+
+#[derive(Deserialize)]
+pub struct SpellAreaOfEffectSpec {
+    shape: SpellAreaOfEffectShapeSpec,
+    size: u8,
+}
+
 impl Default for SpellAreaOfEffectSpec {
     fn default() -> Self {
-        SpellAreaOfEffectSpec::Character(1)
+        Self {
+            shape: SpellAreaOfEffectShapeSpec::Character,
+            size: 1,
+        }
     }
 }
 
@@ -34,23 +44,13 @@ pub struct SpellSpec {
     tagline: OneOrMany<String>,
     /// Any extra description text, chosen at random every time the item is viewed
     flavour: OneOrMany<String>,
-    /// The lowest level that the spell can be cast at
-    level: SpellLevel,
-
-    /// Does the behaviour of the spell change when cast using higher level slots
-    #[serde(default = "default_bool")]
-    multiplies_at_higher_level: bool,
 
     /// Who/Where the spell creates its effect,
     #[serde(default)]
-    effects: SpellAreaOfEffectSpec,
+    area: SpellAreaOfEffectSpec,
 
     #[serde(flatten)]
     action: ActionSpec,
-}
-
-fn default_bool() -> bool {
-    false
 }
 
 impl TomeSpec for SpellSpec {}

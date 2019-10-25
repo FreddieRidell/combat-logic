@@ -28,3 +28,7 @@ Instead of trying to assign a level to spells/items/creatures/characters, I coul
 
 This should obviously be audited, a poorly build gambit system could result in widely over/underpowered tome entries.
 This does also have the advantage that we can tweak the properties of entries, and have them updated against the scores of all other non-updated items
+
+Come to think of it, as the gambit system is data driven as well, we could perhaps also automatically generate and rank a set of gambits.
+
+We also need to consider some measure of synergy, so that given one tome entry, we can pick others that synergise well. It makes no sense to value a warhammer highly, if you're a wizard

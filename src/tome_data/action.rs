@@ -54,7 +54,7 @@ fn against_attribute_default() -> Attribute {
 }
 
 /// A description of an action that can be taken by a character, targeted to any character.
-/// There may be certain limitations, like range or `must_target`.
+/// There may be certain limitations, like range.
 /// Multiple effects can be triggered by any given action. For example, an action could cause
 /// damage to a target, or could heal, add a status, add a buff, and move the target, all at once.
 ///
@@ -65,7 +65,6 @@ pub struct ActionSpec {
     effect: Vec<ActionEffectSpec>,
     label: String,
     range: Range,
-    report: OneOrMany<String>,
     time: Option<DurationSpec>,
     #[serde(flatten)]
     to_hit: Option<ToHit>,
