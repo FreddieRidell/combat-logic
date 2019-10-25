@@ -6,7 +6,6 @@ flavour = []
 
 [consume]
 label = "Eat"
-range = 0
 report = "eat that tastey bread"
 time = "Minute"
 	[[consume.effect]]

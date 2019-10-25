@@ -6,7 +6,6 @@ flavour = [ "The french call this fruit \"le pomme de pommes\"" ]
 
 [consume]
 label = "Eat"
-range = 0
 report = "eat the apple"
 time = "Minute"
 	[[consume.effect]]

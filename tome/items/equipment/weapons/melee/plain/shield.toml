@@ -20,7 +20,6 @@ value = "2"
 [[action]]
 label = "Defend"
 report = "raise my shield"
-range = 1
 	[[action.effect]]
 	type = "Buff"
 	attribute = "ArmorClass"

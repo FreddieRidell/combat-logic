@@ -6,7 +6,6 @@ flavour = [ "Quite why anyone would carry this around on an adventure is beyond 
 
 [consume]
 label = "Eat"
-range = 0
 report = "spoon up the yog"
 time = "Minute"
 	[[consume.effect]]

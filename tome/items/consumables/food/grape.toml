@@ -6,7 +6,6 @@ flavour = [ "it's round and grapey" ]
 
 [consume]
 label = "Eat"
-range = 0
 report = "eat the grape"
 time = "Turn"
 	[[consume.effect]]

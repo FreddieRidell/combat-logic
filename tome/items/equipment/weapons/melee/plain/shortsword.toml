@@ -14,7 +14,6 @@ slot = "OnHand"
 
 [[action]]
 label = "Attack"
-range = 0
 report = "attack the %{target} for %{damage} damage"
 accuracy = "1d20 + 5"
 	[[action.effect]]
@@ -26,7 +25,6 @@ accuracy = "1d20 + 5"
 label = "Block"
 must_target = "Myself"
 report = "shift into a defenceve stance"
-range = 0
 	[[action.effect]]
 	type = "Buff"
 	attribute = "ArmorClass"

@@ -4,7 +4,6 @@ tagline="fill the target with effective goodness"
 flavour="make them feel great"
 
 label="Cast"
-range=1
 
 [[effect]]
 type="Buff"

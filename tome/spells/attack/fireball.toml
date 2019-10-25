@@ -7,11 +7,6 @@ accuracy="1d20"
 against_attribute="Dex"
 label="Cast"
 report="cast a fireball"
-range=12
-
-[area]
-shape="Sphere"
-size=3
 
 [[effect]]
 label="Cast"

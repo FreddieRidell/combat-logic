@@ -12,7 +12,6 @@ flavour = [
 [consume]
 label = "Take Potion"
 report = "use a health potion on %{target}, for %{value} health!"
-range = 1
 	[[consume.effect]]
 	type = "Heal"
 	value = "8d8 + 8"

@@ -1,5 +1,5 @@
 use super::*;
-use crate::error::*;
+
 use serde::de::{self, Deserialize, Deserializer, Visitor};
 use std::collections::HashMap;
 use std::fmt;
@@ -21,11 +21,11 @@ pub struct DiceExpression(HashMap<Dice, u8>);
 impl DiceExpression {
     pub fn parse(s: &str) -> RPGResult<Self> {
         let hash_map: HashMap<Dice, u8> = s
-            .split("+")
+            .split('+')
             .map(|x| x.trim().to_lowercase())
             .map(|token| {
-                if (token.contains("d")) {
-                    let d_index = token.find("d").expect("should contain d");
+                if token.contains('d') {
+                    let d_index = token.find('d').expect("should contain d");
                     let number = token[..d_index].parse::<u8>().unwrap_or(0);
                     let dice_size = token[1 + d_index..].parse::<u8>().map_err(|e| {
                         RPGError::new(RPGErrorKind::DiceExpressionInvalid)

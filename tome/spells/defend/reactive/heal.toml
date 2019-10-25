@@ -4,7 +4,6 @@ tagline = "restore a portion of health"
 flavour = "fill someone up with the red juice"
 level=1
 label="Cast"
-range=6
 
 [[effect]]
 type="Heal"

@@ -10,7 +10,6 @@ slot = "TwoHand"
 
 [[action]]
 label = "Shoot"
-range = 15
 report = "stab the %{target} for %{damage} damage"
 accuracy = "1d20 + 5"
 	[[action.effect]]

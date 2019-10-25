@@ -64,7 +64,6 @@ fn against_attribute_default() -> Attribute {
 pub struct ActionSpec {
     effect: Vec<ActionEffectSpec>,
     label: String,
-    range: Range,
     time: Option<DurationSpec>,
     #[serde(flatten)]
     to_hit: Option<ToHit>,

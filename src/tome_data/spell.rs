@@ -5,35 +5,6 @@ use serde_derive::Deserialize;
 pub struct SpellLevel(u8);
 
 #[derive(Deserialize)]
-pub enum SpellAreaOfEffectShapeSpec {
-    /// A number of characters that are directly targeted
-    Character,
-    /// A number of points where the effect will occour
-    Points,
-    /// A straight line with a given length, from the caster out
-    Line,
-    /// A 45 degreen cone of a given length, out from the caster
-    Cone,
-    /// A sphere of a given diameter, anywhere within range of the caster
-    Sphere,
-}
-
-#[derive(Deserialize)]
-pub struct SpellAreaOfEffectSpec {
-    shape: SpellAreaOfEffectShapeSpec,
-    size: u8,
-}
-
-impl Default for SpellAreaOfEffectSpec {
-    fn default() -> Self {
-        Self {
-            shape: SpellAreaOfEffectShapeSpec::Character,
-            size: 1,
-        }
-    }
-}
-
-#[derive(Deserialize)]
 pub struct SpellSpec {
     /// The name that renders by default for an item
     name: String,
@@ -44,10 +15,6 @@ pub struct SpellSpec {
     tagline: OneOrMany<String>,
     /// Any extra description text, chosen at random every time the item is viewed
     flavour: OneOrMany<String>,
-
-    /// Who/Where the spell creates its effect,
-    #[serde(default)]
-    area: SpellAreaOfEffectSpec,
 
     #[serde(flatten)]
     action: ActionSpec,
