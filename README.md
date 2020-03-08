@@ -42,3 +42,11 @@ This essentially makes weak spells free, as you'll regenerate the mana completel
 - How would physically based classes interact with mana?
 - Do they need to at all?
 - Is the tradeoff that you can't cause as much damage as a spell caster, but you don't have a resource to manage?
+
+## Architecture notes
+
+* [slotmap](https://docs.rs/slotmap/0.4.0/slotmap/) looks like a really good bet for storeing entities, one slotmap per type
+* I should create some sort of abstraction over the intermediate serde data type, that allows me to do the hirearchical merging and the de-serialisation stage: it'll mean extra data stored in the engine, but not much, and means that each entity has all the data it needs to continue
+* Base information (what stats there are, what action types there are) shouldn't be in the tome, it should be in the code. think:
+  * If it belongs in the base player's handbook, put it in the code,
+  * If it could be in a 3rd party content pack or expansion, put it in the tome
